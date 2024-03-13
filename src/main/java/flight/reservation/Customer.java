@@ -7,8 +7,9 @@ import flight.reservation.order.Order;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import flight.reservation.order.Observer;
 
-public class Customer {
+public class Customer impliments Observer{
 
     private String email;
     private String name;
@@ -76,4 +77,7 @@ public class Customer {
         this.orders = orders;
     }
 
+    public void update() {
+        System.out.println("Order status is closed for customer: " + this.getName());
+    }
 }
