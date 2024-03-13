@@ -64,5 +64,37 @@ public class Flight {
     public String toString() {
         return aircraft.toString() + "-" + number + "-" + departure.getCode() + "/" + arrival.getCode();
     }
+    // Nested Builder Class
+    
+    public static class FlightBuilder {
+        private int number;
+        private Airport departure;
+        private Airport arrival;
+        private Object aircraft;
 
+         // Setters (in preferred order)
+        public FlightBuilder withNumber(int number) {
+            this.number = number;
+            return this;
+        }
+
+        public FlightBuilder withDeparture(Airport departure) {
+            this.departure = departure;
+            return this;
+        }
+
+        public FlightBuilder withArrival(Airport arrival) {
+            this.arrival = arrival;
+            return this;
+        }
+
+        public FlightBuilder withAircraft(Object aircraft) {
+            this.aircraft = aircraft;
+            return this;
+        }
+
+        public Flight build() throws IllegalArgumentException {
+            return new Flight(number, departure, arrival, aircraft); 
+        }
+    }
 }

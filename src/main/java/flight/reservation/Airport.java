@@ -49,4 +49,43 @@ public class Airport {
     public String[] getAllowedAircrafts() {
         return allowedAircrafts;
     }
+
+    public static class AirportConstructor {
+        private String name;
+        private String code;
+        private String location;
+        private String[] allowedAircrafts;
+        private List<Flight> flights;
+
+        public AirportConstructor withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public AirportConstructor withCode(String code) {
+            this.code = code;
+            return this;
+        }
+
+        public AirportConstructor withLocation(String location) {
+            this.location = location
+            return this;
+        }
+
+        public AirportConstructor withAllowedAircrafts(String[] allowedAircrafts) {
+            this.allowedAircrafts = allowedAircrafts;
+            return this;
+        }
+
+        public AirportConstructor withFlights(List<Flight> flights) {
+            this.flights = flights;
+            return this;
+        }
+
+        public Airport build() throws IllegalArgumentException {
+            return new Airport(name, code, location, allowedAircrafts);
+        }
+    }
 }
+
+
